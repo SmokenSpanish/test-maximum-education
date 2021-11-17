@@ -1,14 +1,22 @@
 <template>
 <h1>Заявка</h1>
   <form>
-      <label>Город</label>
-          <input type="text">
+      <label>Город:</label>
+          <select v-model="city">
+              <option value="">Moscow</option>
+              <option value="">New York</option>
+          </select>
   </form>
+  <p>City:{{ city }}</p>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      city: ''
+    }
+  }
 }
 </script>
 
