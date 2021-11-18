@@ -6,15 +6,21 @@
               <option value="">Moscow</option>
               <option value="">New York</option>
           </select>
+          <input type="email" v-model="email">
+          <input type="password" v-model="password">
   </form>
   <p>City:{{ city }}</p>
+  <p>email:{{ email }}</p>
+  <p>password:{{ password }}</p>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      city: ''
+      city: '',
+      email: '',
+      password: ''
     }
   }
 }
