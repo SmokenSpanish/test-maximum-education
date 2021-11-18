@@ -15,7 +15,16 @@ const store = createStore({
             state.isPostSuccsess = true;
         }
     },
-    actions: {},
+    actions: {
+        async getCities({ commit }) {
+            try {
+                const cities = await api.getCities();
+                commit('setCities', cities);
+            } catch (err) {
+                console.log(err);
+            }
+        },
+    },
     modules: {},
 })
 

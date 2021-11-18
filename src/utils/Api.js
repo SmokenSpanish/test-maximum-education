@@ -7,7 +7,7 @@ export const handleFetchResponse = (res) => {
     return console.log('Error', res.status);
   }
   
-  export const getFilials = async () => {
+  export const getCities = async () => {
     const res = await fetch(`${BASE_URL}/city`);
     return handleFetchResponse(res);
   }
