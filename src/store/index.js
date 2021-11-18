@@ -1,4 +1,5 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import * as api from '../utils/api';
 
 const store = createStore({
     state() {

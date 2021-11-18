@@ -2,7 +2,7 @@
   <h1>Форма подачи заявки в отдел сервиса и качества</h1>
   <form>
     <label>Ваш филиал:</label>
-    <select name="city" v-model="city" required :disabled="checked">
+    <select name="city" v-model="city" required :disabled="checked" :setCities="setCities">
       <option value="" selected disabled>Выберите город</option>
       <option :value="filial.title" :key="filial.id" v-for="filial in filials">
         {{ filial.title }}
