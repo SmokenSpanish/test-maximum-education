@@ -2,34 +2,53 @@
   <h1>Форма подачи заявки в отдел сервиса и качества</h1>
   <form>
     <label>Ваш филиал:</label>
-    <select name="city" v-model="city" required :disabled="checked" :setCities="setCities">
+    <select
+    name="city"
+    v-model="citySelect"
+    required
+    :disabled="checked"
+    :setCities="setCities"
+    >
       <option value="" selected disabled>Выберите город</option>
-      <option :value="filial.title" :key="filial.id" v-for="filial in filials">
-        {{ filial.title }}
+      <option :value="city.title" :key="city.id" v-for="city in cities">
+        {{ city.title }}
       </option>
     </select>
     <div class="">
-      <input type="checkbox" name="online" />
+      <input
+      type="checkbox"
+      name="online"
+      v-model.trim="checked"
+      @change="$emit('validate', isValid), setCity(currentCity)"
+      />
       <label>Онлайн</label>
     </div>
-    <label>Email:</label>
-    <input type="email" v-model="email" />
-    <label>Password:</label>
-    <input type="password" v-model="password" />
   </form>
-  <p>City:{{ city }}</p>
-  <p>email:{{ email }}</p>
-  <p>password:{{ password }}</p>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      city: '',
-      checked: false
+      citySelect: '',
+      checked: false,
     }
-  }
+  },
+computed: {
+    cities() {
+      return this.$store.state.cities;
+    },
+    isValid() {
+      return (this.selected || this.checked) ? true : false;
+    },
+    currentCity() {
+      return this.checked ? 'online' : this.selected;
+    }
+  },
+  
+    mounted() {
+      this.$store.dispatch('getCities');
+    }
 }
 </script>
 
