@@ -3,15 +3,17 @@
   <form>
     <label>Ваш филиал:</label>
     <CitiesForm/>
+    <ThemeForm/>
   </form>
 </template>
 
 <script>
 import CitiesForm from './CitiesForm';
+import ThemeForm from './ThemeForm';
 export default {
   name: 'FormApp',
   components: {
-    CitiesForm
+    CitiesForm, ThemeForm
   },
   data () {
     return {
@@ -33,6 +35,7 @@ form {
   padding: 40px;
   border-radius: 10px;
 }
+
 label {
   color: #aaa;
   display: inline-block;
@@ -42,17 +45,17 @@ label {
   letter-spacing: 1px;
   font-weight: bold;
 }
-input,
-select {
+
+input, select {
   display: block;
   padding: 10px 6px;
   width: 100%;
   box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
   color: #555;
 }
-input[type="checkbox"] {
+
+input[type="checkbox"],[type="radio"] {
   display: inline-block;
   width: 16px;
   margin: 0 10px 0 0;
