@@ -1,4 +1,5 @@
 <template>
+  <label>Описание проблемы</label>
    <textarea
       class="form__textarea"
       name="description"

@@ -5,6 +5,7 @@
     <CitiesForm/>
     <ThemeForm/>
     <DescriptionForm/>
+    <FileForm/>
   </form>
 </template>
 
@@ -12,10 +13,12 @@
 import CitiesForm from './CitiesForm';
 import ThemeForm from './ThemeForm';
 import DescriptionForm from './DescriptionForm';
+import FileForm from './FileForm';
+
 export default {
   name: 'FormApp',
   components: {
-    CitiesForm, ThemeForm, DescriptionForm
+    CitiesForm, ThemeForm, DescriptionForm, FileForm
   },
   data () {
     return {
