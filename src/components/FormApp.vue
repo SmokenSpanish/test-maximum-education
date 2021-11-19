@@ -4,16 +4,18 @@
     <label>Ваш филиал:</label>
     <CitiesForm/>
     <ThemeForm/>
+    <DescriptionForm/>
   </form>
 </template>
 
 <script>
 import CitiesForm from './CitiesForm';
 import ThemeForm from './ThemeForm';
+import DescriptionForm from './DescriptionForm';
 export default {
   name: 'FormApp',
   components: {
-    CitiesForm, ThemeForm
+    CitiesForm, ThemeForm, DescriptionForm
   },
   data () {
     return {
@@ -29,6 +31,7 @@ computed: {
 <style>
 form {
   max-width: 420px;
+  width: 100%;
   margin: 30px auto;
   background: white;
   text-align: left;
