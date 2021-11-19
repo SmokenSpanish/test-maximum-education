@@ -2,46 +2,47 @@
   <h1>Форма подачи заявки в отдел сервиса и качества</h1>
   <form>
     <label>Ваш филиал:</label>
-    <select name="city" v-model="city" required :disabled="checked" :setCities="setCities">
-      <option value="" selected disabled>Выберите город</option>
-      <option :value="filial.title" :key="filial.id" v-for="filial in filials">
-        {{ filial.title }}
-      </option>
-    </select>
-    <div class="">
-      <input type="checkbox" name="online" />
-      <label>Онлайн</label>
-    </div>
-    <label>Email:</label>
-    <input type="email" v-model="email" />
-    <label>Password:</label>
-    <input type="password" v-model="password" />
+    <CitiesForm/>
+    <ThemeForm/>
+    <DescriptionForm/>
+    <FileForm/>
+    <button class="form__submit-button" :disabled="!isFormValid">Отправить</button>
   </form>
-  <p>City:{{ city }}</p>
-  <p>email:{{ email }}</p>
-  <p>password:{{ password }}</p>
 </template>
 
 <script>
+import CitiesForm from './CitiesForm';
+import ThemeForm from './ThemeForm';
+import DescriptionForm from './DescriptionForm';
+import FileForm from './FileForm';
+
 export default {
+  name: 'FormApp',
+  components: {
+    CitiesForm, ThemeForm, DescriptionForm, FileForm
+  },
   data () {
     return {
-      city: '',
-      checked: false
+
     }
-  }
+  },
+computed: {
+
+  },
 }
 </script>
 
 <style>
 form {
   max-width: 420px;
+  width: 100%;
   margin: 30px auto;
   background: white;
   text-align: left;
   padding: 40px;
   border-radius: 10px;
 }
+
 label {
   color: #aaa;
   display: inline-block;
@@ -51,21 +52,43 @@ label {
   letter-spacing: 1px;
   font-weight: bold;
 }
-input,
-select {
+
+input, select {
   display: block;
   padding: 10px 6px;
   width: 100%;
   box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
   color: #555;
 }
-input[type="checkbox"] {
+
+input[type="checkbox"],[type="radio"] {
   display: inline-block;
   width: 16px;
   margin: 0 10px 0 0;
   position: relative;
   top: 2px;
+}
+
+.form__submit-button {
+  text-transform: uppercase;
+  width: 136px;
+  height: 36px;
+  background: #da9169;
+  border: 1px solid #cf7240;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form__submit-button:disabled {
+  background: #e1e1e1;
+  border: none;
+  cursor: default;
 }
 </style>
