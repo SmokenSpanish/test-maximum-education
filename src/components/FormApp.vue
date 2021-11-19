@@ -6,6 +6,7 @@
     <ThemeForm/>
     <DescriptionForm/>
     <FileForm/>
+    <button class="form__submit-button" :disabled="!isFormValid">Отправить</button>
   </form>
 </template>
 
@@ -67,5 +68,27 @@ input[type="checkbox"],[type="radio"] {
   margin: 0 10px 0 0;
   position: relative;
   top: 2px;
+}
+
+.form__submit-button {
+  text-transform: uppercase;
+  width: 136px;
+  height: 36px;
+  background: #da9169;
+  border: 1px solid #cf7240;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form__submit-button:disabled {
+  background: #e1e1e1;
+  border: none;
+  cursor: default;
 }
 </style>
