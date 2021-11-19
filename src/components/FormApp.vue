@@ -2,53 +2,25 @@
   <h1>Форма подачи заявки в отдел сервиса и качества</h1>
   <form>
     <label>Ваш филиал:</label>
-    <select
-    name="city"
-    v-model="citySelect"
-    required
-    :disabled="checked"
-    :setCities="setCities"
-    >
-      <option value="" selected disabled>Выберите город</option>
-      <option :value="city.title" :key="city.id" v-for="city in cities">
-        {{ city.title }}
-      </option>
-    </select>
-    <div class="">
-      <input
-      type="checkbox"
-      name="online"
-      v-model.trim="checked"
-      @change="$emit('validate', isValid), setCity(currentCity)"
-      />
-      <label>Онлайн</label>
-    </div>
+    <CitiesForm/>
   </form>
 </template>
 
 <script>
+import CitiesForm from './CitiesForm';
 export default {
+  name: 'FormApp',
+  components: {
+    CitiesForm
+  },
   data () {
     return {
-      citySelect: '',
-      checked: false,
+
     }
   },
 computed: {
-    cities() {
-      return this.$store.state.cities;
-    },
-    isValid() {
-      return (this.selected || this.checked) ? true : false;
-    },
-    currentCity() {
-      return this.checked ? 'online' : this.selected;
-    }
+
   },
-  
-    mounted() {
-      this.$store.dispatch('getCities');
-    }
 }
 </script>
 
