@@ -1,12 +1,14 @@
 <template>
-  <h1>Форма подачи заявки в отдел сервиса и качества</h1>
-  <form>
-    <label>Ваш филиал:</label>
+  <form class="form">
+    <h1 class="form__title">Форма подачи заявки в отдел сервиса и качества</h1>
+    <div class="form__container">
+    <label>Ваш филиал</label>
     <CitiesForm/>
     <ThemeForm/>
     <DescriptionForm/>
     <FileForm/>
     <button class="form__submit-button" :disabled="!isFormValid">Отправить</button>
+    </div>
   </form>
 </template>
 
@@ -33,33 +35,33 @@ computed: {
 </script>
 
 <style>
-form {
-  max-width: 420px;
-  width: 100%;
+.form {
+  width: 90%;
   margin: 30px auto;
+}
+
+.form__container {
   background: white;
   text-align: left;
   padding: 40px;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 2px solid #eee;
 }
 
 label {
-  color: #aaa;
+  color: rgb(122, 121, 121);
   display: inline-block;
-  margin: 25px 0 15px;
-  font-size: 0.6em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
+  margin: 12px 0 12px;
+  font-size: 0.8em;
 }
 
 input, select {
   display: block;
   padding: 10px 6px;
-  width: 100%;
+  width: 30%;
   box-sizing: border-box;
   border: 1px solid #ddd;
-  color: #555;
+  color: rgb(165, 148, 148);
 }
 
 input[type="checkbox"],[type="radio"] {

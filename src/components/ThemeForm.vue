@@ -1,4 +1,5 @@
 <template>
+  <label>Тема обращения</label>
   <div class="form__input-container">
     <input
       type="radio"
@@ -86,4 +87,7 @@ export default {
 </script>
 
 <style>
+  .form__input {
+    margin-bottom: 20px;;
+  }
 </style>
