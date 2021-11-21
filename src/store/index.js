@@ -12,8 +12,8 @@ const store = createStore({
         setCities(state, cities) {
             state.cities = cities;
         },
-        setPostSuccsessTrue(state) {
-            state.isPostSuccsess = true;
+        setPostSuccessTrue(state) {
+            state.isPostSuccess = true;
         }
     },
     actions: {
@@ -25,8 +25,18 @@ const store = createStore({
                 console.log(err);
             }
         },
-    },
-    modules: {},
-})
+        async sendData({ commit }, data) {
+            try {
+              const res = await api.sendData(data);
+      
+              if (res.success === false) {
+                commit('setPostSuccessTrue');
+              }
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        }
+      });
 
 export default store

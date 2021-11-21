@@ -1,5 +1,7 @@
 <template>
-  <label>Описание проблемы</label>
+  <label>Описание проблемы
+    <span class="form__span">*</span>
+  </label>
    <textarea
       class="form__textarea"
       name="description"
@@ -7,12 +9,13 @@
       placeholder="Введите текст"
       required
       v-model.trim="message"
-      @input="$emit('validate', isValid)"
+      @input="$emit('validate', isValid), setDescription(message)"
     />
 </template>
 
 <script>
 export default {
+  props: ['setDescription'],
   data() {
     return {
       message: '',

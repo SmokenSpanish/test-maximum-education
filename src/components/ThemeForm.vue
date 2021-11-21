@@ -1,52 +1,51 @@
 <template>
-  <label>Тема обращения</label>
+  <label>Тема обращения
+    <span class="form__span">*</span>
+  </label>
   <div class="form__input-container">
     <input
       type="radio"
       name="theme"
-      valie="quality"
+      value="quality"
       ref="radio"
       v-model="picked"
-      required
-      @change="$emit('validate', isValid), cleanInput()"
+      id="quality"
+      @change="$emit('validate', isValid), cleanInput(), setTheme(theme)"
     />
-    <label>Недоволен качеством услуг</label>
+    <label for="quality">Недоволен качеством услуг</label>
   </div>
   <div class="form__input-container">
     <input
       type="radio"
       name="theme"
-      valie="quality"
-      ref="radio"
+      value="quality"
       v-model="picked"
-      required
-      @change="$emit('validate', isValid), cleanInput()"
+      id="termination"
+      @change="$emit('validate', isValid), cleanInput(), setTheme(theme)"
     />
-    <label>Расторжение договора</label>
+    <label for="termination">Расторжение договора</label>
   </div>
   <div class="form__input-container">
     <input
       type="radio"
       name="theme"
-      valie="quality"
-      ref="radio"
+      value="quality"
       v-model="picked"
-      required
-      @change="$emit('validate', isValid), cleanInput()"
+      id="letter"
+      @change="$emit('validate', isValid), cleanInput(), setTheme(theme)"
     />
-    <label>Не приходит письмо активации на почту</label>
+    <label for="letter">Не приходит письмо активации на почту</label>
   </div>
   <div class="form__input-container">
     <input
       type="radio"
       name="theme"
-      valie="quality"
-      ref="radio"
+      value="quality"
       v-model="picked"
-      required
-      @change="$emit('validate', isValid), cleanInput()"
+      id="account"
+      @change="$emit('validate', isValid), cleanInput(), setTheme(theme)"
     />
-    <label>Не работает личный кабинет</label>
+    <label for="account">Не работает личный кабинет</label>
   </div>
   <input
     class="form__input"
@@ -55,22 +54,26 @@
     ref="input"
     required
     v-model="text"
-    @input="$emit('validate', isValid), unpickedRadioInputs()"
+    @input="$emit('validate', isValid), unpickedRadioInputs(), setTheme(theme)"
   />
 </template>
 
 <script>
 export default {
   name: "ThemeForm",
+  props: ['setTheme'],
   data() {
     return {
       picked: false,
-      text: "",
+      text: '',
     };
   },
   computed: {
     isValid() {
       return this.picked || this.text ? true : false;
+    },
+    theme() {
+      return this.picked ? this.picked : this.text;
     },
   },
   methods: {
