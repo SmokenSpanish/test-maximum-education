@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  props: ['setFile'],
   methods: {
     handleFileChange(evt) {
       const file = evt.target.files[0];
@@ -23,5 +24,9 @@ export default {
   color: #a0a0a0;
   max-width: 420px;
   margin: 0 0 15px;
+}
+
+.form__file-input {
+  border: none;
 }
 </style>

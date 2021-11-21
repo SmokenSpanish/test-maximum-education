@@ -1,15 +1,13 @@
 <template>
-  <FormApp />
+  <RouterView />
 </template>
 
 <script>
-import FormApp from './components/FormApp.vue'
 import store from './store'
 
 export default {
   name: 'App',
   store,
-  components: { FormApp }
 }
 </script>
 
