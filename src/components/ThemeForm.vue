@@ -91,6 +91,6 @@ export default {
 
 <style>
   .form__input {
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
   }
 </style>
