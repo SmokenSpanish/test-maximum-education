@@ -28,5 +28,6 @@ export default {
 
 .form__file-input {
   border: none;
+  padding-left: 0;
 }
 </style>
